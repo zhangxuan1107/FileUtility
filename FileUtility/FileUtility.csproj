@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>zxeli</Authors>
+    <Product>zxeli</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>zhangxuan1107.FileUtility</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
