@@ -6,6 +6,8 @@
     <Product>zxeli</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>zhangxuan1107.FileUtility</PackageId>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/zhangxuan1107/FileUtility.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
