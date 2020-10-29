@@ -58,26 +58,24 @@ namespace FileUtility
         public static T DeserializeFromFile<T>(string filePath, out string msg)
         {
             msg = "";
-            var result = default(T);
-            using (System.IO.FileStream fs = new System.IO.FileStream(filePath, FileMode.Open))
+            var result = default(T); try
             {
-                try
+                using (System.IO.FileStream fs = new System.IO.FileStream(filePath, FileMode.Open))
                 {
+
                     var bs = new byte[1024 * 1024];
                     fs.Read(bs, 0, bs.Length);
                     var s = Encoding.UTF8.GetString(bs);
                     result = JsonConvert.DeserializeObject<T>(s);
-                }
-                catch (Exception ex)
-                {
 
-                    msg = ex.Message;
                 }
             }
+            catch (Exception ex)
+            {
 
+                msg = ex.Message;
+            }
             return result;
-
-
         }
 
         #endregion

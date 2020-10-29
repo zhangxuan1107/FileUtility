@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,6 +8,8 @@
     <PackageId>zhangxuan1107.FileUtility</PackageId>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/zhangxuan1107/FileUtility.git</RepositoryUrl>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>修正异常捕获问题</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
