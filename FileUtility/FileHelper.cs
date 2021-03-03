@@ -33,7 +33,7 @@ namespace FileUtility
                 ret = false;
                 return ret;
             }
-            var s = JsonConvert.SerializeObject(t);
+            var s = JsonConvert.SerializeObject(t, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             var bs = Encoding.UTF8.GetBytes(s);
             using (System.IO.FileStream fs = new System.IO.FileStream(filePath, FileMode.Create))
             {
@@ -55,7 +55,7 @@ namespace FileUtility
         #region 从指定文件反序列化(暂时是json,最大支持是1kb)
 
 
-        public static T DeserializeFromFile<T>(string filePath, out string msg)
+        public static T DeserializeFromFile<T>(string filePath,Encoding encoding, out string msg)
         {
             msg = "";
             var result = default(T); try
@@ -65,8 +65,8 @@ namespace FileUtility
 
                     var bs = new byte[1024 * 1024];
                     fs.Read(bs, 0, bs.Length);
-                    var s = Encoding.UTF8.GetString(bs);
-                    result = JsonConvert.DeserializeObject<T>(s);
+                    var s = encoding.GetString(bs);
+                    result = JsonConvert.DeserializeObject<T>(s, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore,StringEscapeHandling=StringEscapeHandling.EscapeNonAscii });
 
                 }
             }

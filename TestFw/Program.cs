@@ -14,11 +14,13 @@ namespace TestFw
         private static Dictionary<string, string> RegDicResult = new Dictionary<string, string>();
         static void Main(string[] args)
         {
-            RegDic.Add("aaaa", "r123456");
+            RegDic.Add("aaaa", "张轩");
             RegDic.Add("bbbb", "r987654");
             FileHelper.SerializeToFile<Dictionary<string, string>>(RegDic, path, out string msg);
 
-            RegDicResult= FileHelper.DeserializeFromFile<Dictionary<string, string>>(path, out msg);
+            RegDicResult= FileHelper.DeserializeFromFile<Dictionary<string, string>>(path,Encoding.GetEncoding("gb2312"), out msg);
+
+            var model = FileHelper.DeserializeFromFile<ConfigModel>(@"ConfigModel.json", Encoding.GetEncoding("gb2312"), out msg);
         }
     }
 }
